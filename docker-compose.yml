@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  php-fpm:
+    container_name: php-fpm-dev
+    build:
+      context: .
+      dockerfile: df-php.dockerfile
+    tty: true
+    volumes:
+      - ./code/app:/code/app
+    ports:
+      - 10901:9000
+
+  nginx:
+    container_name: nginx-dev
+    build:
+      context: .
+      dockerfile: df-nginx.dockerfile
+    depends_on:
+      - php-fpm
+    tty: true
+    volumes:
+      - ./code/app:/usr/share/nginx/html
+        # - ./code/config/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 10902:8888
