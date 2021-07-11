@@ -79,7 +79,7 @@ The setting of VSCode are written in `.vscode/launch.json`.
             "name": "Listen for XDebug",
             "type": "php",
             "request": "launch",
-            "port": 9012,
+            "port": 10903,
             "pathMappings": {
                  "/usr/src/app": "${workspaceFolder}/php/app"
              }
